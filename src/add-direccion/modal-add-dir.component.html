@@ -1,0 +1,38 @@
+<div class="container">
+  <div>
+    <div class="container-title">
+      <mat-icon class="icon-mas">add_circle</mat-icon>
+      <h3>Digite la dirección:</h3>
+    </div>
+  </div>
+  <mat-dialog-content>
+    <form [formGroup]="formGroup" class="mb-3">
+      <input
+        formControlName="dir"
+        type="text"
+        class="input-key"
+        placeholder="Escribir la dirección a buscar"
+        id="palabra"
+      />
+      <div>
+        <mat-error *ngIf="getErrorForControl('dir')">
+          {{ getErrorForControl("dir") }}
+        </mat-error>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <div class="ml-2 mb-4 d-flex justify-content-between m-auto">
+      <button class="before-step" mat-button mat-dialog-close>Regresar</button>
+      <div class="mx-4"></div>
+      <button
+        (click)="buscar()"
+        class="boton-stepper"
+        mat-button
+        cdkFocusInitial
+      >
+        Ubicar
+      </button>
+    </div>
+  </mat-dialog-actions>
+</div>

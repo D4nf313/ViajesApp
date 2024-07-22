@@ -1,0 +1,67 @@
+.container {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.input-key {
+  width: 25rem;
+  border-radius: 4px;
+  color: #666;
+  border: 1px solid #666;
+  font-size: 12px;
+  padding: 3px 5px;
+}
+
+.icon-mas {
+  color: #666;
+  font-size: 56px;
+  height: 60px;
+  width: 80px;
+  margin-top: 35px;
+}
+
+
+
+::ng-deep .mdc-dialog .mdc-dialog__content {
+  padding: 0 24px !important;
+}
+
+.mat-mdc-dialog-actions {
+  margin-bottom: 10px;
+}
+
+.icon-mas {
+  color: #666;
+  font-size: 70px;
+  height: 70px;
+  width: 80px;
+  margin-top: 35px;
+}
+.boton-stepper {
+  border-radius: 22px;
+  outline: 0;
+  padding: 6px 62px;
+  background-color: blue;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+}
+.before-step {
+  border-radius: 22px;
+  outline: 0;
+  border: 1px var(--blue) solid;
+  color: var(--blue);
+  padding: 6px 62px;
+  background-color: white;
+  font-size: 12px;
+}
+
+.container-title {
+  color: #666;
+}
+
+.snackbar-exito {
+  background-color: #666;
+}
