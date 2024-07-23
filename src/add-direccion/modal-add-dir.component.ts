@@ -35,9 +35,8 @@ export class ModalDirComponent {
 
   constructor(
     private _formBuilder: FormBuilder,
-
+    public dialogRef: MatDialogRef<ModalDirComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private snackbar: MatSnackBar
   ) {
     this.formGroup = this._formBuilder.group({
       dir: [
@@ -69,7 +68,10 @@ export class ModalDirComponent {
     if (this.formGroup.invalid) {
       this.formGroup.markAllAsTouched();
       return;
+    } else {
+      const direccion = this.formGroup.get('dir')!.value;
+      console.log(direccion);
+      this.dialogRef.close(direccion);
     }
-
   }
 }

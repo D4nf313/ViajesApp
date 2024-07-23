@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalDirComponent } from '../add-direccion/modal-add-dir.component';
+import { DireccionService } from '../servicios/direccion.service';
 
 @Component({
   selector: 'app-banner-slider',
@@ -21,11 +22,14 @@ export class BannerSliderComponent {
     { img: '../assets/sea-2564601_960_720.jpg', title: 'Slide 3' },
   ];
 
-  constructor(    public dialog: MatDialog,) {}
+  constructor(public dialog: MatDialog, public direccionService: DireccionService) {}
 
-  abrirModal(){
-    this.dialog.open(ModalDirComponent, {
-      width: "500px",
+  abrirModal() {
+    const dialogRef = this.dialog.open(ModalDirComponent, {
+      width: '500px',
+    });
+    dialogRef.afterClosed().subscribe((direccion) => {
+      this.direccionService.sendDireccion(direccion);
     });
   }
 

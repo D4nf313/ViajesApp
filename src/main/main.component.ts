@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BannerSliderComponent } from '../banner-slider/banner-slider.component';
+import { MapaComponent } from '../app/mapa/mapa.component';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
-  imports:[BannerSliderComponent],
+  imports:[BannerSliderComponent, MapaComponent ],
   standalone: true,
 
 })
