@@ -37,5 +37,11 @@ export class DireccionService {
     return of(this.ubicaciones).pipe(delay(1000)); // Simula un retraso de 1 segundo
   }
 
+    // Método para encontrar una ubicación por id
+    obtenerUbicacionPorId(id: number): Observable<any> {
+      const ubicacion = this.ubicaciones.find(u => u.id === id);
+      return of(ubicacion).pipe(delay(500)); // Simula un retraso de 0.5 segundos
+    }
+
   constructor() {}
 }

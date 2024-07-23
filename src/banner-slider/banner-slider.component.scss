@@ -36,6 +36,7 @@ mat-card {
 
 .mje-slide {
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 .prev-button,
@@ -66,4 +67,9 @@ mat-card {
 
 html .mat-mdc-fab.mat-accent {
   --mdc-fab-container-color: #2e34b2 !important;
+}
+
+.ubi {
+  margin-left: 25px;
+  font-size: 15px;
 }

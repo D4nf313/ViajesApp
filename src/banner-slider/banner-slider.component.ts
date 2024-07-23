@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,9 +14,9 @@ import { DireccionService } from '../servicios/direccion.service';
   templateUrl: './banner-slider.component.html',
   styleUrls: ['./banner-slider.component.scss'],
 })
-export class BannerSliderComponent {
+export class BannerSliderComponent implements OnInit {
   currentSlide = 0;
-  slides:any = [
+  slides: any = [
     {
       img: '../assets/istockphoto-1026871784-1024x1024.jpg',
       title: 'Destino 1',
@@ -27,37 +27,58 @@ export class BannerSliderComponent {
       title: 'Destino 2',
       id: 2,
     },
-    { img: '../assets/sea-2564601_960_720.jpg', 
-      title: 'Destino 3', 
-      id: 3 },
+    { img: '../assets/sea-2564601_960_720.jpg', title: 'Destino 3', id: 3 },
   ];
-
+  ubicacion: any;
   constructor(
     public dialog: MatDialog,
     public direccionService: DireccionService
   ) {}
+  ngOnInit(): void {
+    /*     this.direccionService.obtenerUbicaciones().subscribe((ubicaciones) => {
+      this.ubicaciones = ubicaciones;
+      console.log(this.ubicaciones)
+    }); */
+  }
 
-  abrirModal(id:number) {
-    console.log(id)
+  abrirModal(id: number) {
+    console.log(id);
     const dialogRef = this.dialog.open(ModalDirComponent, {
       width: '500px',
     });
     dialogRef.afterClosed().subscribe((direccion) => {
-    const registroDir ={
-      dir: direccion,
-      id:id
-    }
-    console.log(registroDir)
+      const registroDir = {
+        dir: direccion,
+        id: id,
+      };
+      console.log(registroDir);
       this.direccionService.sendDireccion(registroDir);
     });
   }
 
   nextSlide() {
     this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    const id = this.currentSlide + 1;
+    this.direccionService.obtenerUbicacionPorId(id).subscribe((ubi) => {
+      if (ubi) {
+        this.ubicacion = ubi;
+      } else {
+        this.ubicacion = undefined;
+      }
+    });
   }
 
   prevSlide() {
     this.currentSlide =
       (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    const id = this.currentSlide + 1;
+    this.direccionService.obtenerUbicacionPorId(id).subscribe((ubi) => {
+      console.log(ubi);
+      if (ubi) {
+        this.ubicacion = ubi;
+      } else {
+        this.ubicacion = undefined;
+      }
+    });
   }
 }

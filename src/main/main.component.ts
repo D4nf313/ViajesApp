@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BannerSliderComponent } from '../banner-slider/banner-slider.component';
-import { MapaComponent } from '../app/mapa/mapa.component';
+import { MapaComponent } from '../mapa/mapa.component';
 
 @Component({
   selector: 'app-main',

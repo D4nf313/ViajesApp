@@ -9,9 +9,17 @@
       <div class="button-container"></div>
       <div class="mje-slide-container">
         <mat-card-title>
-          <span class="mje-slide"> {{ slide.title }}</span>
+          <div class="d-flex">
+            <span class="mje-slide"> {{ slide.title }}</span>
+            <span class="ubi" *ngIf="ubicacion"> {{ ubicacion.dir }}</span>
+          </div>
         </mat-card-title>
-        <button (click)="abrirModal(i+1)" mat-fab extended class="button-trip">
+        <button
+          (click)="abrirModal(i + 1)"
+          mat-fab
+          extended
+          class="button-trip"
+        >
           <mat-icon>favorite</mat-icon>
           Buscar
         </button>
