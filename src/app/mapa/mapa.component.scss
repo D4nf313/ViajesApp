@@ -1,10 +1,43 @@
 .map-container {
+  display: flex; /* Utiliza Flexbox para colocar elementos en una fila */
+  align-items: flex-start; /* Alinea los elementos al principio del contenedor */
+  gap: 10px;
+}
 
-  }
-  
-  .map-frame {
-    border: 2px solid black;
-    height: 100%;
-  }
-  
-  #map { height: 600px; }
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+  flex: 1; /* Ocupa todo el espacio disponible */
+  position: relative;
+}
+
+#map {
+  width: 100%; /* Asegura que el mapa ocupe el ancho completo del contenedor */
+  height: 400px;
+}
+.button-container {
+  display: flex; /* Utiliza Flexbox para centrar el botón verticalmente */
+  align-items: center; /* Alinea el botón verticalmente en el centro */
+}
+
+
+.boton-guardar{
+  border-radius: 65px;
+  border: none;
+  background-color: #0943b5;
+  color: white;
+  font-weight: 500;
+  width: auto;
+  padding: 24px;
+  height: 45px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center;
+  gap: 10px;
+}
+
+mat-nav-list{
+  max-width:250px;
+}
+
+

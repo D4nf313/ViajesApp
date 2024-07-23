@@ -36,7 +36,7 @@ export class ModalDirComponent {
   constructor(
     private _formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<ModalDirComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.formGroup = this._formBuilder.group({
       dir: [
@@ -70,7 +70,6 @@ export class ModalDirComponent {
       return;
     } else {
       const direccion = this.formGroup.get('dir')!.value;
-      console.log(direccion);
       this.dialogRef.close(direccion);
     }
   }
