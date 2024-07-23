@@ -31,7 +31,7 @@ mat-card {
   align-items: center;
   height: auto;
   padding: 20px;
-  background-color: rgb(149, 149, 237);
+  background-color: var(--primary-color);
 }
 
 .mje-slide {
@@ -49,7 +49,8 @@ mat-card {
 }
 
 .button-trip {
-  color: antiquewhite;
+background-color: var(--secondary-color);
+color: black;
 }
 
 .prev-button {

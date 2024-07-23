@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { DireccionService } from '../servicios/direccion.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarDangerComponent } from '../snackbar/snackbar-danger/snackbar-danger.component';
 
 @Component({
   selector: 'app-mapa',
@@ -22,7 +24,10 @@ export class MapaComponent implements OnInit {
     this.initMap();
   }
 
-  constructor(public direccionService: DireccionService) {}
+  constructor(
+    public direccionService: DireccionService,
+    private snackbar: MatSnackBar
+  ) {}
   ngOnInit(): void {
     this.direccionService.currentMessage.subscribe((ubi: any) => {
       if (ubi) {
@@ -72,6 +77,7 @@ export class MapaComponent implements OnInit {
             dir: result.display_name,
           };
         } else {
+          this.mensajeError();
           console.error('No se encontraron resultados para la dirección dada.');
         }
       })
@@ -82,6 +88,16 @@ export class MapaComponent implements OnInit {
 
   centrarMapa(ubicacion: any) {
     this.geocodeAddress(ubicacion);
+  }
+
+  mensajeError() {
+    this.snackbar.openFromComponent(SnackbarDangerComponent, {
+      duration: 5000,
+      horizontalPosition: 'center', // Posición horizontal del mensaje ('start', 'center', 'end', 'left' o 'right')
+      verticalPosition: 'bottom', // Posición vertical del mensaje ('top' o 'bottom')
+      panelClass: 'snackbar-danger',
+      data: ['No se encontro resultados con los criterios ed busqueda'],
+    });
   }
 
   guardar() {

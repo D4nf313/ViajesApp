@@ -1,2 +1,26 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+:root {
+    --primary-color: #2a8c4a;
+    --secondary-color: #9bfab0;
+    --background-color: #d0fdd7;
+    --text-color: #FFFFFF;
+    --accent-color: #17A2B8;
+    --error-color: #DC3545;
+  }
+
+body {
+    background-color: var(--background-color); /* Cambia esto al color deseado */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Opcional: establece una fuente por defecto */
+  }
+
+  h1,h2,h3{
+    font-family: 'Roboto', sans-serif; /* Fuente moderna */
+  font-size: 3rem; /* Tamaño grande del texto */
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+  }

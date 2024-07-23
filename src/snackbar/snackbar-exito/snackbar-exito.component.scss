@@ -1,0 +1,20 @@
+p {
+  margin: 0;
+  display: flex;
+}
+
+.icon-snack {
+  margin: 0 5px;
+}
+
+.button-snack {
+  border: solid 1px #2d7d64;
+  color: #2d7d64;
+  border-radius: 15px;
+  background-color: #cde6df;
+  padding: 5px 25px;
+}
+
+.snackbar-container {
+  width: 100%;
+}

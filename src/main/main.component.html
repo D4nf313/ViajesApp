@@ -1,6 +1,12 @@
 <div class="container">
+  <h1 >Agencia de Viajes Df</h1>
+  <p>Nosotros planificamos tu viaje, danos 3 destinos donde quieras ir y te buscaremos los mejores hoteles, planes y transporte todo en un mismo sitio</p>
   <div class="banner">
     <app-banner-slider/>
+    <button (click)="planearViaje()" class="planear" mat-fab extended>
+      <mat-icon>airplane_ticket</mat-icon>
+      PLANEAR VIAJE
+    </button>
   </div>
   <app-mapa/>
 </div>

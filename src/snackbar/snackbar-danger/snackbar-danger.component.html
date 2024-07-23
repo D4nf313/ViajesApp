@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-between snackbar-container">
+    <div class="align-content-center">
+      <p>
+        <span class="material-icons icon-snack"> cancel </span>{{ message }}
+      </p>
+    </div>
+    <div>
+      <button matSnackBarAction (click)="snackBarRef.dismissWithAction()" class="button-snack">Entendido</button>
+    </div>
+  </div>
