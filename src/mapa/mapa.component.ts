@@ -101,7 +101,6 @@ export class MapaComponent implements OnInit {
   }
 
   guardar() {
-    console.log(this.ubicacion.id);
     if (this.ubicacion.id) {
       this.direccionService.agregarUbicacion(this.ubicacion).subscribe(
         (ubicacionGuardada) => {

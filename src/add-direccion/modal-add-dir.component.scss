@@ -33,7 +33,7 @@
 }
 
 .icon-mas {
-  color: #666;
+  color: var(--primary-color);
   font-size: 70px;
   height: 70px;
   width: 80px;
@@ -43,7 +43,7 @@
   border-radius: 22px;
   outline: 0;
   padding: 6px 62px;
-  background-color: blue;
+  background-color: var(--primary-color);
   color: #fff;
   border: none;
   font-size: 12px;
@@ -51,7 +51,7 @@
 .before-step {
   border-radius: 22px;
   outline: 0;
-  border: 1px var(--blue) solid;
+  border: 1px var(--primary-color) solid;
   color: var(--blue);
   padding: 6px 62px;
   background-color: white;

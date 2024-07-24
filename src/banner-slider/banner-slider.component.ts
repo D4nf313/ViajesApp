@@ -34,25 +34,20 @@ export class BannerSliderComponent implements OnInit {
     public dialog: MatDialog,
     public direccionService: DireccionService
   ) {}
-  ngOnInit(): void {
-    /*     this.direccionService.obtenerUbicaciones().subscribe((ubicaciones) => {
-      this.ubicaciones = ubicaciones;
-      console.log(this.ubicaciones)
-    }); */
-  }
+  ngOnInit(): void {}
 
   abrirModal(id: number) {
-    console.log(id);
     const dialogRef = this.dialog.open(ModalDirComponent, {
       width: '500px',
     });
     dialogRef.afterClosed().subscribe((direccion) => {
-      const registroDir = {
-        dir: direccion,
-        id: id,
-      };
-      console.log(registroDir);
-      this.direccionService.sendDireccion(registroDir);
+      if (direccion) {
+        const registroDir = {
+          dir: direccion,
+          id: id,
+        };
+        this.direccionService.sendDireccion(registroDir);
+      }
     });
   }
 
@@ -73,7 +68,6 @@ export class BannerSliderComponent implements OnInit {
       (this.currentSlide - 1 + this.slides.length) % this.slides.length;
     const id = this.currentSlide + 1;
     this.direccionService.obtenerUbicacionPorId(id).subscribe((ubi) => {
-      console.log(ubi);
       if (ubi) {
         this.ubicacion = ubi;
       } else {

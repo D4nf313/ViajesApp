@@ -26,8 +26,7 @@ export class MainComponent implements OnInit {
   constructor(
     public direccionService: DireccionService,
     private socketService: SocketService,
-    private snackbar: MatSnackBar,
-
+    private snackbar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -40,14 +39,13 @@ export class MainComponent implements OnInit {
 
   planearViaje() {
     this.direccionService.obtenerUbicaciones().subscribe((data) => {
-      console.log(data);
       if (data.length > 0) {
         this.socketService.sendMessage(data);
         // Suscríbete a onDataReceived después de enviar el mensaje
         this.socketService.onDataReceived().subscribe((response: any) => {
           this.confirmationMessage = response.message;
           console.log('Mensaje de confirmación recibido:', response.message);
-          if( response.message){
+          if (response.message) {
             this.mostrarMensajeExito();
           }
         });
@@ -58,13 +56,12 @@ export class MainComponent implements OnInit {
   mostrarMensajeExito() {
     this.snackbar.openFromComponent(SnackbarExitoComponent, {
       duration: 5000,
-      horizontalPosition: "center", // Posición horizontal del mensaje ('start', 'center', 'end', 'left' o 'right')
-      verticalPosition: "bottom", // Posición vertical del mensaje ('top' o 'bottom')
-      panelClass: "snackbar-exito",
+      horizontalPosition: 'center', // Posición horizontal del mensaje ('start', 'center', 'end', 'left' o 'right')
+      verticalPosition: 'bottom', // Posición vertical del mensaje ('top' o 'bottom')
+      panelClass: 'snackbar-exito',
       data: [
-        "Se ha agregado con exito los lugares que quiere viajar, pronto nos contactaremos con usted con toda la informacion",
+        'Se ha agregado con exito los lugares que quiere viajar, pronto nos contactaremos con usted con toda la informacion',
       ],
     });
   }
-
 }
