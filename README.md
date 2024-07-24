@@ -1,5 +1,10 @@
 # MensajeriaApp
 
+clona este proyecto con git clone 
+se recomienda usar una version de node arriba de la 17
+despues de bajar el prpoyecto hay que hacer un npm i
+y despues se corre conn un ng s -o
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
 ## Development server
